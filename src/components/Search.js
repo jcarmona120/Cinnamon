@@ -5,7 +5,8 @@ class Search extends Component {
 	constructor(props) {
 		super(props)
     	this.state = {
-        	searchTerm: ''
+        	searchTerm: '',
+        	wordData: ''
     	};
 
     	this.handleChange = this.handleChange.bind(this);
@@ -20,6 +21,7 @@ class Search extends Component {
     handleSubmit(event) {
         axios.get(`https://api.datamuse.com/words?ml=${this.state.searchTerm}`)
             .then((response) => {
+            	this.setState({wordData: response.data})
                 var words = response.data;
                 console.log(words)
             })
