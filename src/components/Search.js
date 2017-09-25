@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import axios from 'axios';
 
 class Search extends Component {
-    state = {
-        searchTerm: ''
-    };
+	constructor(props) {
+		super(props)
+    	this.state = {
+        	searchTerm: ''
+    	};
+
+    	this.handleChange = this.handleChange.bind(this);
+    	this.handleSubmit = this.handleSubmit.bind(this);
+   	}
+
+
+    handleChange(event) {
+        this.setState({ searchTerm: event.target.value })
+    }
 
     handleSubmit(event) {
         axios.get(`https://api.datamuse.com/words?ml=${this.state.searchTerm}`)
@@ -12,6 +23,7 @@ class Search extends Component {
                 var words = response.data;
                 console.log(words)
             })
+        event.preventDefault();
     }
 
     render() {
