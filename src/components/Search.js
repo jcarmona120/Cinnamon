@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import SynonymCard from './SynonymCard';
+
 class Search extends Component {
 	constructor(props) {
 		super(props)
@@ -13,7 +15,6 @@ class Search extends Component {
     	this.handleSubmit = this.handleSubmit.bind(this);
    	}
 
-
     handleChange(event) {
         this.setState({ searchTerm: event.target.value })
     }
@@ -22,34 +23,30 @@ class Search extends Component {
         axios.get(`https://api.datamuse.com/words?md=d&ml=${this.state.searchTerm}`)
             .then((response) => {
             	this.setState({wordData: response.data})
-                console.log(this.state.wordData[0])
+                console.log(this.state.wordData)
             })
         event.preventDefault();
     }
 
-    
-
     render() {
-    	let synonym;
+    	let synonymCard;
 	    if (this.state.wordData) {
-	    	synonym = <h4>{this.state.wordData[0].word}</h4>
+	    	synonymCard = <SynonymCard data={this.state.wordData} />
 	    } else {
-	    	synonym = <h4>Type Your Word Now</h4>
+	    	synonymCard = <h4>Type Your Word Now</h4>
 	    }
         return (
         	<div>
-	        <div> 
-		        <form onSubmit={this.handleSubmit}>
-		        	<label>
-		          	Name:
-		          	<input type="text" value={this.state.searchTerm} onChange={this.handleChange} />
-		        	</label>
-		        	<input type="submit" value="Submit" />
-		      	</form>
-		    </div>
-		    <div>
-		    	<h4>{synonym}</h4>
-		    </div>
+		        <div> 
+			        <form onSubmit={this.handleSubmit}>
+			        	<label>
+			          	Name:
+			          	<input type="text" value={this.state.searchTerm} onChange={this.handleChange} />
+			        	</label>
+			        	<input type="submit" value="Submit" />
+			      	</form>
+			    </div>
+			    {synonymCard}
 		    </div>
         );
     }
