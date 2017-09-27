@@ -3,8 +3,8 @@ import React from 'react';
 
 const Search = (props) => {
         return (
-        	<div>
-		        <div> 
+
+		        <div className="searchForm"> 
 			        <form onSubmit={props.handleSubmit}>
 			        	<label>
 			          	Name:
@@ -13,7 +13,6 @@ const Search = (props) => {
 			        	<input type="submit" value="Submit" />
 			      	</form>
 			    </div>
-		    </div>
         );
 }
 

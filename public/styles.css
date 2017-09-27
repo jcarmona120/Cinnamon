@@ -1,0 +1,55 @@
+h1 {
+  font-family: 'Bubbler One', sans-serif;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	
+}
+
+/**** SEARCH FORM ****/
+
+.searchForm {
+	display: flex;
+
+}
+
+
+
+/******* CSSTRANSITIONGROUP CLASSES ********/
+
+/* start enter state */
+.slide-enter {
+	transform: translateX(-100%);
+}
+
+
+/* end enter state */
+.slide-enter.slide-enter-active {
+	transform: translateX(0);
+	transition: transform .5s ease-out;
+}
+
+
+/*start leave state*/
+.slide-leave {
+	transform: translateX(0);
+}
+
+/*end leave state*/
+.slide-leave.slide-leave-active {
+	transform: translateX(100%);
+	transition: transform .5s ease-in;
+}
+
+/*initial mounting*/
+.slide-appear {
+	opacity: 0;
+}
+
+.slide-appear.slide-appear-active {
+	opacity: 1;
+	transition: opacity .5s ease-in;
+}

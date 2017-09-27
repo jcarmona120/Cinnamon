@@ -1,3 +1,79 @@
 h1 {
   font-family: 'Bubbler One', sans-serif;
 }
+
+li {
+	list-style: none;
+}
+
+html  {
+	height: 100%;
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat:no-repeat;
+   background: rgba(105,12,15,1);
+background: -moz-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(105,12,15,1)), color-stop(22%, rgba(113,19,29,1)), color-stop(49%, rgba(129,19,36,1)), color-stop(73%, rgba(145,18,48,1)), color-stop(100%, rgba(164,14,64,1)));
+background: -webkit-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+background: -o-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+background: -ms-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+background: linear-gradient(135deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#690c0f', endColorstr='#a40e40', GradientType=1 );
+	
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	
+	
+}
+
+/**** SEARCH FORM ****/
+
+.searchForm {
+	display: flex;
+	justify-content: center;
+	padding-top: 2em;
+}
+
+
+
+/******* CSSTRANSITIONGROUP CLASSES ********/
+
+/* start enter state */
+.slide-enter {
+	transform: translateX(-100%);
+}
+
+
+/* end enter state */
+.slide-enter.slide-enter-active {
+	transform: translateX(0);
+	transition: transform .5s ease-out;
+}
+
+
+/*start leave state*/
+.slide-leave {
+	transform: translateX(0);
+}
+
+/*end leave state*/
+.slide-leave.slide-leave-active {
+	transform: translateX(100%);
+	transition: transform .5s ease-in;
+}
+
+/*initial mounting*/
+.slide-appear {
+	opacity: 0;
+}
+
+.slide-appear.slide-appear-active {
+	opacity: 1;
+	transition: opacity .5s ease-in;
+}
