@@ -6,11 +6,12 @@ const Search = (props) => {
 
 		        <div className="searchForm"> 
 			        <form onSubmit={props.handleSubmit}>
-			        	<label>
-			          	Name:
-			          	<input type="text" value={props.searchTerm} onChange={props.handleChange} placeholder="Search" />
-			        	</label>
-			        	<input type="submit" value="Submit" />
+			        	<span>
+			        	<label className="searchForm_label">
+			          	Word:</label>
+			          	<input className="basic-slide" type="text" value={props.searchTerm} onChange={props.handleChange} placeholder="Search" />
+			          	</span>
+			        	<input type="submit" value="Submit" id="submitButton" />
 			      	</form>
 			    </div>
         );

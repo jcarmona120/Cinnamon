@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import Search from './components/Search';
+import axios from 'axios';
 
 import ReactCSSTransititionsGroup from 'react-addons-css-transition-group';
 
+import Search from './components/Search';
 import SynonymCard from './components/SynonymCard';
 
 import './App.css';
 
-import axios from 'axios';
+
+
 
 class App extends Component {
 	constructor(props) {

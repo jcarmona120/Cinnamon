@@ -1,11 +1,3 @@
-h1 {
-  font-family: 'Bubbler One', sans-serif;
-}
-
-li {
-	list-style: none;
-}
-
 html  {
 	height: 100%;
 	-webkit-background-size: cover;
@@ -21,8 +13,20 @@ background: -o-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 2
 background: -ms-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
 background: linear-gradient(135deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#690c0f', endColorstr='#a40e40', GradientType=1 );
-	
+color: white;	
 }
+
+h1 {
+  font-family: 'Bubbler One', sans-serif;
+  color: dodgerblue;
+}
+
+li {
+	list-style: none;
+}
+
+
+
 
 .wrapper {
 	display: flex;
@@ -38,6 +42,64 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#690c0f', end
 	display: flex;
 	justify-content: center;
 	padding-top: 2em;
+}
+
+.searchForm_label {
+	padding-right: 2em;
+}
+
+  span {
+    position: relative;
+    display: inline-block;
+    margin: 30px 10px;
+  }
+.basic-slide {
+  display: inline-block;
+  width: 215px;
+  padding: 10px 0 10px 15px;
+  font-family: "Open Sans", sans;
+  font-weight: 400;
+  color: #377D6A;
+  background: #efefef;
+  border: 0;
+  border-radius: 3px;
+  outline: 0;
+  text-indent: 70px; // Arbitrary.
+  transition: all .3s ease-in-out;
+  
+  &::-webkit-input-placeholder {
+    color: #efefef;
+    text-indent: 0;
+    font-weight: 300;
+  }
+
+label {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 15px;
+    text-shadow: 0 1px 0 rgba(19,74,70,.4);
+    background: #7AB893;
+    transition: all .3s ease-in-out;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+}
+.basic-slide:focus,
+.basic-slide:active {
+  color: #377D6A;
+  text-indent: 0;
+  background: #fff;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  
+  &::-webkit-input-placeholder {
+    color: #aaa;
+  }
+  + label {
+    transform: translateX(-100%);
+  }
 }
 
 
