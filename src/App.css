@@ -135,6 +135,19 @@ input[type="submit"] {
 	transition: transform .5s ease-out;
 }
 
+/* start enter state */
+.slide-leave {
+  transform: translateX(100%);
+}
+
+
+/* end enter state */
+.slide-leave.slide-leave-active {
+  transform: translateX(0);
+  transition: transform .5s ease-in;
+}
+
+
 
 /*initial mounting*/
 .slide-appear {
