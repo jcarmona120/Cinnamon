@@ -6,14 +6,12 @@ const SynonymCard = (props) => {
 		return (
 			<div className="synonymsList">
 	            	<ReactCSSTransititionsGroup 
-	            	component="ul"
-	            	transitionName="slide"
-	            	transitionEnterTimeout={500}
-	            	transtitionAppear={true}
-	            	transitionAppearTimeout={500}
-	            	>
-	            	{props.synonyms}
-	    		       
+		            	component="ul"
+		            	transitionName="slide"
+		            	transitionEnterTimeout={500}
+		            	transitionLeaveTimeout={500}
+		            >
+		            	{props.synonyms}  
 	            	</ReactCSSTransititionsGroup>
 	            	
 	        </div>

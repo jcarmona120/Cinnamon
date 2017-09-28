@@ -35,7 +35,7 @@ class App extends Component {
   render() {
   	const newData = Array.from(this.state.wordData)
   	const synonyms =  newData.map((synonym) => {
-		        	return <li>{synonym.word}</li>
+		        	return <li key={synonym.score}>{synonym.word}</li>
 		        })
     return (
       <div className="App wrapper">
