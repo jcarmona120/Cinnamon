@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-import ReactCSSTransititionsGroup from 'react-addons-css-transition-group';
-
 import Search from './components/Search';
 import SynonymCard from './components/SynonymCard';
+import SiteTitle from './components/SiteTitle';
 
 import './App.css';
-
-
-
 
 class App extends Component {
 	constructor(props) {
@@ -28,11 +24,12 @@ class App extends Component {
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         axios.get(`https://api.datamuse.com/words?md=d&ml=${this.state.searchTerm}&max=10`)
             .then((response) => {
             	this.setState({wordData: response.data})
             })
-        event.preventDefault();
+        
     }
 
   render() {
@@ -41,23 +38,11 @@ class App extends Component {
 		        	return <li>{synonym.word}</li>
 		        })
     return (
-
       <div className="App wrapper">
-        <h1>Cinnamon</h1>
-        <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.searchTerm} onChange={this.handleChange} />
-        <div>
-        	<ReactCSSTransititionsGroup 
-        	component="ul"
-        	transitionName="slide"
-        	transitionEnterTimeout={500}
-        	transitionLeaveTimeout={500}
-        	transtitionAppear={true}
-        	transitionAppearTimeout={500}
-        	>
-        	{synonyms}
-		       
-        	</ReactCSSTransititionsGroup>
-        	
+        <SiteTitle />
+        <div className="synonymWrapper">
+            <Search handleChange={this.handleChange} handleSubmit={this.handleSubmit} value={this.state.searchTerm} onChange={this.handleChange} />
+            <SynonymCard synonyms={synonyms} />
         </div>
       </div>
 

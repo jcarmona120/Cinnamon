@@ -6,9 +6,9 @@ html  {
     background-size: cover;
     background-repeat:no-repeat;
    background: rgba(105,12,15,1);
-background: -moz-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
-background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(105,12,15,1)), color-stop(22%, rgba(113,19,29,1)), color-stop(49%, rgba(129,19,36,1)), color-stop(73%, rgba(145,18,48,1)), color-stop(100%, rgba(164,14,64,1)));
-background: -webkit-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+   background: -moz-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
+   background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(105,12,15,1)), color-stop(22%, rgba(113,19,29,1)), color-stop(49%, rgba(129,19,36,1)), color-stop(73%, rgba(145,18,48,1)), color-stop(100%, rgba(164,14,64,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
 background: -o-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
 background: -ms-linear-gradient(-45deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
 background: linear-gradient(135deg, rgba(105,12,15,1) 0%, rgba(113,19,29,1) 22%, rgba(129,19,36,1) 49%, rgba(145,18,48,1) 73%, rgba(164,14,64,1) 100%);
@@ -18,7 +18,12 @@ color: white;
 
 h1 {
   font-family: 'Bubbler One', sans-serif;
-  color: dodgerblue;
+  color: white;
+}
+
+.siteTitle::before {
+  content: url("./img/cinnamon-roll.png");
+  zoom: 65%;
 }
 
 li {
@@ -29,23 +34,70 @@ li {
 
 
 .wrapper {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	
-	
+  display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+.siteTitle {
+  justify-self: center;
+  text-align: center;
+
+}
+
+.synonymWrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
 /**** SEARCH FORM ****/
+form {
+  display: flex;
+  flex-direction: column;
+}
 
 .searchForm {
 	display: flex;
+  flex-direction: column;
 	justify-content: center;
 	padding-top: 2em;
 }
 
 .searchForm_label {
 	padding-right: 2em;
+}
+
+
+input[type=text] {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  border-bottom: .4em dotted green;
+  font-size: 1em;
+  text-indent: 70px; 
+  padding: 10px 0 10px 15px;
+}
+
+input[type=text]:focus {
+  background-color: transparent;
+  color: white;
+  border: 0;
+  border-bottom: .4em dotted green;
+  font-size: 1em;
+}
+
+input[type="submit"] {
+  background-color: transparent;
+  border: 0;
+  color: white;
+  margin: 0 auto;
+  font-size: 1em;
+}
+
+
+.synonymsList {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5em;
 }
 
   span {
@@ -56,7 +108,7 @@ li {
 .basic-slide {
   display: inline-block;
   width: 215px;
-  padding: 10px 0 10px 15px;
+  
   font-family: "Open Sans", sans;
   font-weight: 400;
   color: #377D6A;
@@ -64,42 +116,7 @@ li {
   border: 0;
   border-radius: 3px;
   outline: 0;
-  text-indent: 70px; // Arbitrary.
-  transition: all .3s ease-in-out;
   
-  &::-webkit-input-placeholder {
-    color: #efefef;
-    text-indent: 0;
-    font-weight: 300;
-  }
-
-label {
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    padding: 10px 15px;
-    text-shadow: 0 1px 0 rgba(19,74,70,.4);
-    background: #7AB893;
-    transition: all .3s ease-in-out;
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-  }
-}
-.basic-slide:focus,
-.basic-slide:active {
-  color: #377D6A;
-  text-indent: 0;
-  background: #fff;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-  
-  &::-webkit-input-placeholder {
-    color: #aaa;
-  }
-  + label {
-    transform: translateX(-100%);
-  }
 }
 
 
@@ -118,17 +135,6 @@ label {
 	transition: transform .5s ease-out;
 }
 
-
-/*start leave state*/
-.slide-leave {
-	transform: translateX(0);
-}
-
-/*end leave state*/
-.slide-leave.slide-leave-active {
-	transform: translateX(100%);
-	transition: transform .5s ease-in;
-}
 
 /*initial mounting*/
 .slide-appear {

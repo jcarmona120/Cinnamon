@@ -1,15 +1,23 @@
 import React from 'react';
+import ReactCSSTransititionsGroup from 'react-addons-css-transition-group';
 
 
 const SynonymCard = (props) => {
-		const results = props.data;
-		console.log(props.data)
-		
-         return (
-	         <ul>
-	    		<li>why</li>
-	         </ul>
-         )   
+		return (
+			<div className="synonymsList">
+	            	<ReactCSSTransititionsGroup 
+	            	component="ul"
+	            	transitionName="slide"
+	            	transitionEnterTimeout={500}
+	            	transtitionAppear={true}
+	            	transitionAppearTimeout={500}
+	            	>
+	            	{props.synonyms}
+	    		       
+	            	</ReactCSSTransititionsGroup>
+	            	
+	        </div>
+        )
     }
 
 
