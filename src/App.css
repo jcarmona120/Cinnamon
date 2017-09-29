@@ -125,36 +125,33 @@ input[type="submit"] {
 
 /* start enter state */
 .slide-enter {
-	transform: translateX(-100%);
+  transform: translateX(-100%);
 }
-
 
 /* end enter state */
 .slide-enter.slide-enter-active {
-	transform: translateX(0);
-	transition: transform .5s ease-out;
-}
-
-/* start enter state */
-.slide-leave {
-  transform: translateX(100%);
-}
-
-
-/* end enter state */
-.slide-leave.slide-leave-active {
   transform: translateX(0);
-  transition: transform .5s ease-in;
+  transition: transform 0.5s ease-out;
 }
 
+/* start leave state */
+.slide-leave {
+ transform: translateX(0);
+}
 
+/* end leave state */
+.slide-leave.slide-leave-active {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 0.5s ease-in;
+}
 
-/*initial mounting*/
+/* initial mounting */
 .slide-appear {
-	opacity: 0;
+  opacity: 0;
 }
 
 .slide-appear.slide-appear-active {
-	opacity: 1;
-	transition: opacity .5s ease-in;
+  opacity: 1;
+  transition: opacity 0.5s ease-in;
 }
